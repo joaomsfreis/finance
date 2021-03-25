@@ -1,0 +1,31 @@
+.container {
+    background: var(--strong-background);
+    color: var(--white);
+
+    height: 15vh;
+
+    padding: 1rem 5rem;
+    border-top: 5px solid var(--primary-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    box-shadow: 3px 3px 5px 6px #7a7a7a;
+}
+
+.container > a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 50%;
+
+    font-size: 1rem;
+    color: var(--white);
+}
+
+.container > a:hover {
+    color: var(--primary-color);
+}

@@ -1,0 +1,20 @@
+.container {
+    margin: 1rem;
+}
+
+.container form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 2fr 0.5fr;
+    gap: 1rem;
+}
+
+@media (max-width: 900px)
+{
+    .container form {
+        flex: 1;
+
+        grid-template-columns: 1fr;
+
+        gap: 2rem;
+    }
+}

@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #8be9fd;
+    --light-background: #f8f8f2;
+    --strong-background: #282a36;
+    --white: #fff;
+    --text: #ffb86c;
+    --primary-color: #f1fa8c;
+    --secundary-color: #f8f8f2;
+}
+
+@media(max-width: 1080px) {
+    html {
+        font-size: 93.75%;
+    }
+}
+
+@media(max-width: 720px) {
+    html {
+        font-size: 87.5%;
+    }
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+}
+
+input, select {
+    height: 2.5rem;
+
+    border: 3px solid var(--secundary-color);
+    border-radius: 8px;
+
+    background: var(--strong-background);
+    color: var(--white);
+
+    padding: 0rem 1rem;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-color);
+}
+
+body, input, textarea, button, select {
+    font: 500 1rem "Tako", sans-serif;
+}
+
+button {
+    background: var(--strong-background);
+    color: var(--white);
+
+    border: none;
+    box-shadow: 2px 2px 2px 2px #7a7a7a;
+
+    height: 5.5vh;
+
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+button:hover {
+    background: var(--primary-color);
+    color: var(--strong-background);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}

@@ -1,0 +1,19 @@
+.container {
+    background: var(--strong-background);
+    color: var(--white);
+
+    height: 8vh;
+
+    padding: 1rem 5rem;
+    border-bottom: 5px solid var(--primary-color);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    box-shadow: 3px 3px 5px 6px #7a7a7a;
+}
+
+.container > div > span {
+    font: 400 1rem 'Krona One', sans-serif;
+}
