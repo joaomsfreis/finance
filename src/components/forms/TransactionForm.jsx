@@ -1,7 +1,7 @@
 import styles from '../../styles/components/TransactionForm.module.css';
 import {useForm} from "react-hook-form";
 
-const isNumberKey = (evt) => {
+const isNumberKey = async (evt) => {
     let keyCode = (evt.keyCode ? evt.keyCode : evt.which);
     if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) { // 46 is dot
         evt.preventDefault();
@@ -24,7 +24,6 @@ const normalizeValue = (value) => {
         newValue = `0,${newValue}`
     }
 
-    console.log(newValue);
     return `R$ ${newValue}`;
 }
 
