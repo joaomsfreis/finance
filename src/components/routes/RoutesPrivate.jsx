@@ -3,11 +3,11 @@ import {Route, Redirect} from "react-router-dom";
 import {LoginContext} from "../../contexts/LoginProvider";
 
 const RoutesPrivate = ({component: Component, ...rest}) => {
-    const { token } = useContext(LoginContext);
+    const { hasToken } = useContext(LoginContext);
 
     return (
         <Route {...rest}
-               render={() => token
+               render={() => hasToken
                    ? <Component {...rest}/>
                    : <Redirect to={'/login'}/>
                }
