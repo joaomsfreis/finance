@@ -9,19 +9,16 @@ export const LoginProvider = ({children}) => {
     const [userID, setUserID] = useState(null);
     const [hasToken, setHasToken] = useState(false);
 
-    useEffect(async () => {
+    useEffect(() => {
         const currentToken = Cookies.get('token');
         const currentID = Cookies.get('user_id');
 
-        console.log(currentID, currentToken);
-
         setToken(currentToken ?? null);
         setUserID(currentID ?? null);
-    });
+    }, []);
 
-    useEffect(async () => {
-        console.log('aqui')
-        await api.post('users/auth', {token}).then(response => {
+    useEffect(() => {
+        api.post('users/auth', {token}).then(response => {
             setHasToken(true);
         }).catch(err => {
             setHasToken(false);

@@ -1,6 +1,4 @@
 .container {
-    background: var(--strong-background);
-
     height: 100vh;
     max-width: 100%;
     margin: 0 auto;

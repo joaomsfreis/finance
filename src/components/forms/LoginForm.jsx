@@ -22,6 +22,10 @@ export function LoginForm() {
         })
     }
 
+    const onRegister = async (data) => {
+        alert("Em breve...");
+    }
+
     return (
         <div className={styles.container}>
             <h1>
@@ -29,15 +33,18 @@ export function LoginForm() {
             </h1>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <label htmlFor="user">E-mail</label>
+                    <label htmlFor="user"><strong>E-mail:</strong></label>
                     <input type="text" id="email" name="email" ref={register}/>
                 </div>
                 <div>
-                    <label htmlFor="password">Senha</label>
+                    <label htmlFor="password"><strong>Senha:</strong></label>
                     <input type="password" id="password" name="password" ref={register}/>
                 </div>
 
-                <button type="submit"><strong>Entrar</strong></button>
+                <div>
+                    <button type="submit"><strong>Entrar</strong></button>
+                    <button type="button" onClick={handleSubmit(onRegister)}><strong>Cadastrar</strong></button>
+                </div>
             </form>
         </div>
     )
