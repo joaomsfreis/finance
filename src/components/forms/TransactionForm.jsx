@@ -31,14 +31,29 @@ const normalizeValue = (value) => {
 }
 
 export function TransactionForm() {
-    const {token} = useContext(LoginContext);
+    const {token, userID} = useContext(LoginContext);
     const {register, handleSubmit} = useForm();
     const [types, setTypes] = useState([]);
-    const onSubmit = (data) => console.log(JSON.stringify(data));
 
     async function loadTypes() {
         await api.get('types', {token}).then(response => {
             setTypes(response.data.types);
+        })
+    }
+
+    const onSubmit = async (data, e) => {
+        let transactions = {...data};
+
+        transactions.value = parseFloat(transactions.value.replace('R$ ', '').replace(',', '.'));
+        transactions.user_id = userID;
+
+        await api.post('transactions', transactions, {
+            headers: {Authorization: `Bearer ${token}`}
+        }).then(response => {
+            alert('Transação cadastrada!');
+            e.target.reset();
+        }).catch((err) => {
+            alert('Não foi possível cadastrar a transação.');
         })
     }
 
@@ -49,7 +64,7 @@ export function TransactionForm() {
     return (
         <div className={styles.container}>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <select name="type" defaultValue={''} ref={register}>
+                <select name="type_id" defaultValue={''} ref={register}>
                     <option value="">Selecione o tipo da transação...</option>
                     {
                         types.map((type, index) => (<option key={index} value={type.id}>{type.name}</option>))
